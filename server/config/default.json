@@ -1,0 +1,4 @@
+{
+  "serverPort": 5000,
+  "dbUrl": "mongodb+srv://root:root@cloudstore.2yl9d.mongodb.net/cloudStore?retryWrites=true&w=majority"
+}
