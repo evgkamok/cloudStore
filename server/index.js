@@ -6,10 +6,12 @@ const corsMiddleware = require('./middleware/cors.middleware')
 
 const app = express()
 const PORT = config.get('serverPort')
+process.env.SUPPRESS_NO_CONFIG_WARNING = '';
+
 
 app.use(corsMiddleware)
 app.use(express.json())
-app.use('/api/auth/', authRouter)
+app.use('/api/auth', authRouter)
 
 const start = async () => {
   try {
@@ -18,6 +20,7 @@ const start = async () => {
       console.log('Server started on port ', PORT)
     })
   } catch (e) {
+    console.log(e)
     console.log('Something go wrong')
   }
 }
