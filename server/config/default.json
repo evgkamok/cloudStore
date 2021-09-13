@@ -1,5 +1,5 @@
 {
-  "serverPort": 5000,
-  "dbUrl": "mongodb+srv://root:root@cloudstore.2yl9d.mongodb.net/cloudStore?retryWrites=true&w=majority",
-  "secretKey": "secreasdsadstKey-2131qedasdasds"
+  "serverPort": 5555,
+  "dbUrl": "mongodb+srv://root:root@cluster0.hpu6h.mongodb.net/cloudStore2?retryWrites=true&w=majority",
+  "secretKey": "SomeKeyForSecretPassword2131alsoAddSomeNUmbersForThisKey"
 }

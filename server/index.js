@@ -1,27 +1,32 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const config = require('config')
-const authRouter = require('./routes/auth.routes')
-const corsMiddleware = require('./middleware/cors.middleware')
+const express = require("express");
+const mongoose = require("mongoose");
+const config = require("config");
+const authRouter = require('./routes/auth.routes');
+const corsMiddleware = require("./middleware/cors.middleware");
 
-const app = express()
-const PORT = config.get('serverPort')
-process.env.SUPPRESS_NO_CONFIG_WARNING = '';
+const PORT = config.get('serverPort');
+const uri = config.get('dbUrl');
 
-
+const app = express();
 app.use(corsMiddleware)
-app.use(express.json())
-app.use('/api/auth', authRouter)
+app.use(express.json());
+app.use("/api/auth", authRouter);
 
-const start = async () => {
+const start =  async () => {
   try {
-    await mongoose.connect(config.get('dbUrl'))
-    app.listen(PORT, () => {
-      console.log('Server started on port ', PORT)
+
+    await mongoose.connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     })
-  } catch (e) {
-    console.log(e)
-    console.log('Something go wrong')
+
+    app.listen(PORT, () => {
+      console.log(`Server is running on ${PORT}`);
+    })
+  } catch (error) {
+    console.log('Start app error');
   }
-}
-start()
+};
+
+
+start();

@@ -15,7 +15,6 @@
           <FilterInfo>
             <option name="description" value="" />
             <option name="name" value="" />
-            <option name="regExp" value="$MESSAGE$\Q in \E$FILE_PATH$\Q on line \E$LINE$\Q, column \E$COLUMN$" />
           </FilterInfo>
         </array>
       </option>
