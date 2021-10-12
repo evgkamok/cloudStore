@@ -1,12 +1,13 @@
 const Router = require("express");
 const User = require("../models/User");
+const File = require("../models/File");
 const config = require("config");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator");
 const authMiddleware = require("../middleware/auth.middleware");
 const fileService = require("../services/fileService");
-const File = require("../models/File");
+
 
 const router = new Router();
 
